@@ -1,72 +1,163 @@
-.resolucion{
+html{
+    height: 100%;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100%;
+}
+
+.resolucion {
     width: 140px;
     height: 70px;
     margin-top: 10px;
     margin-left: 40px;
 }
 
-#seleccion{
+@media only screen and (max-width: 760px) {
+    .resolucion {
+        width: 80%;
+    }
+
+    ul {
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    .footer {
+        display: flex;
+        align-items: end;
+        bottom: 0px;
+    }
+}
+
+#seleccion {
     color: aliceblue;
     background-color: #dc3545;
 }
-.resolucion1{
+
+.resolucion1 {
     width: 50px;
     height: 40px;
     margin: 10px;
-    
+
 }
 
+main {
+    position: relative;
+}
 
-.color{
+.color {
     color: #dc3545;
 }
 
-.size1{
+.size1 {
     margin: 30px;
     height: auto;
     width: auto;
 }
+
 .input {
     margin-top: 30px;
     margin-bottom: 30px;
 }
-.size1 input{
+
+.size1 input {
     width: 500px;
     height: 30px;
     outline: none;
-    border:2px #dc3545 solid;
+    border: 2px #dc3545 solid;
 }
 
-.size1 button{
+.size1 button {
     height: 30px;
     position: relative;
 }
 
-svg{
+svg {
     position: relative;
     bottom: 5px;
 }
-#hover{
+
+#hover {
     --bs-btn-hover-bg: #141619;
     --bs-btn-border-color: #dc3545;
     --bs-btn-disabled-border-color: #dc3545;
-    --bs-btn-active-border-color:#dc3545;
+    --bs-btn-active-border-color: #dc3545;
 
 }
 
+
+
+/* Home - Upevents - past events*/
 .contenedor {
     width: 80%;
     margin: 34px 200px;
-    
-    
-}
+}  
+
+@media screen and (min-width: 320px) and (max-width: 768px) {
+    body{
+        position: relative;
+        margin-bottom: 40px;
+        min-height: 100vh;
+    }
+
+    .content{
+        flex-wrap: wrap;
+    }
+
+    .card{
+        margin: 0px;
+        padding: 0%;
+    }
+
+    .contenedor {
+        display: flex;
+        flex-wrap: wrap;
+        margin-left: 15px;
+        position: relative;
+    }
+    nav{
+        display: flex;
+        flex-wrap: wrap;  
+    }
+     .size1{
+        width: 320px;
+        height: 30px;
+     }
+     .footer{
+        display: flex;
+        justify-content: flex-end;
+        align-items: flex-end;
+    }
+    .container2{
+        position: relative;
+        top: 0;
+    }
+    form .form{
+        margin: 5px auto;
+        position: relative;
+    }
+    .footer{
+        display: flex;
+        justify-content: flex-end;
+        align-items: flex-end;
+    }
+   }
+    .footer{
+        display: flex;
+        justify-content: flex-end;
+        align-items: flex-end;
+    }
+
 
 .card {
     width: 100%;
     margin: 20px;
     overflow: hidden;
     background: #ffff;
-    box-shadow: 5px 5px 20px rgba(0,0,0,0.2);
+    box-shadow: 5px 5px 20px rgba(0, 0, 0, 0.2);
     cursor: default;
     transition: all 400ms ease;
     margin-left: 20px;
@@ -74,78 +165,88 @@ svg{
 
 }
 
-.card:hover{
-    box-shadow: 5px 5px 20px rgba(0,0,0,0.4);
+.card:hover {
+    box-shadow: 5px 5px 20px rgba(0, 0, 0, 0.4);
     transform: translateY(-3%);
 }
 
-.card img{
+.card img {
     width: 100%;
     height: 210px;
 }
 
-.card .contenido{
+.card .contenido {
     padding: 15px;
     text-align: center;
 
 }
 
-.card .contenido p{
+.card .contenido p {
     line-height: 1.5;
     color: #6a6a6a;
 }
 
-.card .contenido h3{
+.card .contenido h3 {
     font-weight: 400;
     margin-bottom: 15px;
 }
 
-.card .contenido h6{
+.card .contenido h6 {
     display: inline-block;
     margin-right: 20px;
 }
 
-.card .contenido a{
+.card .contenido a {
     text-decoration: none;
     display: inline-block;
     padding: 10px;
     margin-top: 10px;
     color: #dc3545;
     border: 1px solid #dc3545;
-    box-shadow: -7px -6px 10px rgba(0,0,0,0.2);
+    box-shadow: -7px -6px 10px rgba(0, 0, 0, 0.2);
     transition: all 400ms ease;
 
 }
 
-.card .contenido a:hover{
+.card .contenido a:hover {
     background: #dc3545;
     color: aliceblue;
 }
-.container2{
+
+.container2 {
     display: flex;
     min-height: 50vh;
 }
 
-.form{
+
+
+
+
+
+/* ********CONTACT******** */
+.form {
     background-color: #fff;
-    margin: 80px auto 20px auto;
+    margin: 60px auto 20px auto;
+    height: auto;
     width: 90%;
     max-width: 400px;
     padding: 4.5em 3em;
-    box-shadow: 0 5px 10px -5px rgb(0,0,0,0.3);
+    box-shadow: 0 5px 10px -5px rgb(0, 0, 0, 0.3);
     text-align: center;
 }
-.form_container{
+
+.form_container {
     margin-top: 3em;
     display: grid;
     gap: 2.5em;
 }
-.form_group{
+
+.form_group {
     position: relative;
-    color:#5757577e
+    color: #5757577e
 }
 
-.form_input{
+.form_input {
     width: 100%;
     background: none;
     color: #dc3545;
@@ -155,8 +256,9 @@ svg{
     outline: none;
     border-bottom: 1px solid #5757577e;
 }
-.form_label{
-    color:#5757577e;
+
+.form_label {
+    color: #5757577e;
     cursor: pointer;
     position: absolute;
     top: 0;
@@ -165,12 +267,13 @@ svg{
     transition: transform .5s, color .3s;
 }
 
-.form_input:focus + .form_label , .form_input:not(:placeholder-shown) + .form_label{
+.form_input:focus+.form_label,
+.form_input:not(:placeholder-shown)+.form_label {
     transform: translateY(-12px) scale(.7);
     transform-origin: left top;
 }
 
-.form_submit{
+.form_submit {
     background: #dc3545;
     color: #ffff;
     font-weight: 300;
@@ -180,8 +283,45 @@ svg{
     border-radius: 5px;
 }
 
-footer{
+footer {
+    margin-top: auto;
     position: absolute;
     bottom: 0;
     width: 100%;
 }
+
+
+
+
+
+/***** Stats *********/
+table {
+    margin: 60px auto;
+}
+
+.th {
+    border: 2px solid black;
+    padding: 1rem;
+    background: #dc3545;
+    color: #fff;
+}
+
+.custom {
+    border: 2px solid black;
+    padding: 0 10px
+}
+
+.td {
+    border: 2px solid black;
+    padding: 12px 40px;
+}
+
+@media screen and (max-width: 720) {
+    table {
+        position: relative;
+        display: flex;
+        flex-wrap: wrap;
+    }
+}
+
+/*  *****DETAILS***** */
