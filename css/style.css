@@ -91,11 +91,6 @@ svg {
 
 
 /* Home - Upevents - past events*/
-.contenedor {
-    width: 80%;
-    margin: 34px 200px;
-}  
-
 @media screen and (min-width: 320px) and (max-width: 768px) {
     body{
         position: relative;
@@ -126,7 +121,7 @@ svg {
         width: 320px;
         height: 30px;
      }
-     .footer{
+    footer{
         display: flex;
         justify-content: flex-end;
         align-items: flex-end;
@@ -139,21 +134,21 @@ svg {
         margin: 5px auto;
         position: relative;
     }
-    .footer{
-        display: flex;
-        justify-content: flex-end;
-        align-items: flex-end;
-    }
    }
-    .footer{
-        display: flex;
-        justify-content: flex-end;
-        align-items: flex-end;
-    }
 
+
+.contenedor {
+    width: 100%;
+    margin-top: 20px;
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    
+    
+}  
 
 .card {
-    width: 100%;
+    width: 25%;
     margin: 20px;
     overflow: hidden;
     background: #ffff;
@@ -231,7 +226,7 @@ svg {
     width: 90%;
     max-width: 400px;
     padding: 4.5em 3em;
-    box-shadow: 0 5px 10px -5px rgb(0, 0, 0, 0.3);
+    box-shadow: -1px -10px 15px -1px rgb(0, 0, 0, 0.3);
     text-align: center;
 }
 
@@ -284,10 +279,9 @@ svg {
 }
 
 footer {
-    margin-top: auto;
-    position: absolute;
-    bottom: 0;
-    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-end;
 }
 
 
@@ -323,5 +317,3 @@ table {
         flex-wrap: wrap;
     }
 }
-
-/*  *****DETAILS***** */
