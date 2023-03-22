@@ -1,27 +1,54 @@
-let eventos = data.events
+let urlApi = 'https://mindhub-xj03.onrender.com/api/amazing';
 
-let categorias = document.querySelectorAll('.form-check-input')
+let eventos;
 
-categorias.forEach(categoria => categoria.addEventListener('change', seleccion))
+async function getEvents() {
+  try {
+    let response = await fetch(urlApi);
+    let dataApi = await response.json();
+    eventos = dataApi.events;
+    
+    crearCards(eventos);
+    
+    const search = document.querySelector('#search')
+    const boton = document.querySelector('#boton')
+    boton.addEventListener('click', () =>filtrar(eventos))
+    search.addEventListener('input', () =>filtrar(eventos))
+    filtrar(eventos);
 
-function crearCards(arr, contenedor) {
-  let card = document.querySelector(contenedor);
+  } catch (error) {
+    console.log(error.message)
+  }
+}
+
+getEvents();
+
+
+
+let categorias = document.querySelectorAll('.form-check-input');
+
+categorias.forEach(categoria => categoria.addEventListener('change', seleccion));
+
+function crearCards(eventos) {
+  let card = document.querySelector('#card-template');
   card.innerHTML = " "
-  arr.forEach((elemento) => {
+  eventos.forEach(evento => {
     card.innerHTML += `
         <div class="card">
                 <figure>
-                    <img src="${elemento.image}" alt="${elemento.name}"/>
+                    <img src="${evento.image}" alt="${evento.name}"/>
                 </figure>
                 <div class="contenido">
-                    <h3>${elemento.name}</h3>
-                    <p>${elemento.description}</p>
-                    <h6>Price:$${elemento.price}</h6>
-                    <a href="./details.html?id=${elemento._id}">Ver Más</a>
+                    <h3>${evento.name}</h3>
+                    <p>${evento.description}</p>
+                    <h6>Price:$${evento.price}</h6>
+                    <a href="./details.html?id=${evento._id}">Ver Más</a>
                 </div>
             </div>`;
   });
 }
+
+/////////////////////////////// CATEGORIAS ////////////////////////////////////////
 
 function seleccion() {
   let seleccionado = Array.from(categorias).filter(categoria => categoria.checked)
@@ -30,10 +57,11 @@ function seleccion() {
 }
 
 let cardFiltrado = []
-function filtrarCategory(eventos, arrayInputs) {
+
+function filtrarCategory(eventos, seleccion) {
   cardFiltrado = []
   eventos.forEach(evento => {
-    arrayInputs.forEach(
+    seleccion.forEach(
       elemento => {
         if (evento.category == elemento.value) {
           cardFiltrado.push(evento)
@@ -43,45 +71,33 @@ function filtrarCategory(eventos, arrayInputs) {
   })
 
   if (cardFiltrado.length > 0) {
-    crearCards(cardFiltrado, "#card-template")
+    crearCards(cardFiltrado)
   } else {
-    crearCards(eventos, "#card-template")
+    crearCards(eventos)
   }
 }
-crearCards(eventos, "#card-template")
+crearCards();
 
 
 
+////////////////////////////////// SEARCH ////////////////////////////
 
 
-
-const search = document.querySelector('#search')
-
-const boton = document.querySelector('#boton')
-
-let buscado = []
-
-const filtrar = () => {
+function filtrar(arr) {
   let buscado = []
   const texto = search.value.toLowerCase().trim();
-  
-  for (evento of eventos) {
+   
+    for (let evento of arr) {
     let name = evento.name.toLowerCase().trim();
     if (name.indexOf(texto) !== -1) {
-      buscado.push(evento)}
-  }if (buscado.length > 0) {
-    crearCards(buscado, "#card-template")
+      buscado.push(evento)
+    }
+  } if (buscado.length > 0) {
+    crearCards(buscado)
   } else {
     let NoEncontrado = document.getElementById("card-template")
     NoEncontrado.innerHTML = `<p>Evento No Encontrado...</p>`
-  }
+  } 
 }
-
-boton.addEventListener('click', filtrar)
-search.addEventListener('keyup', filtrar)
-filtrar()
-
-
-
 
 
